@@ -344,10 +344,13 @@ namespace TusDotNetClient
             if (response.StatusCode != HttpStatusCode.NoContent && response.StatusCode != HttpStatusCode.OK)
                 throw new Exception("GetFileOffset failed. " + response.ResponseString);
 
-            if (!response.Headers.ContainsKey(TusHeaderNames.UploadOffset))
+            var offsetHeaderKey = response.Headers.Keys
+                .FirstOrDefault(k => string.Equals(k, TusHeaderNames.UploadOffset, StringComparison.OrdinalIgnoreCase));
+
+            if (offsetHeaderKey == null)
                 throw new Exception("Offset Header Missing");
 
-            return long.Parse(response.Headers[TusHeaderNames.UploadOffset]);
+            return long.Parse(response.Headers[offsetHeaderKey]);
         }
 
         private static int ChunkSizeToMB(double chunkSize)
