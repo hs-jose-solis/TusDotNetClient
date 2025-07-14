@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>TusDotNetClient</RootNamespace>
-    <AssemblyName>TusDotNetClient</AssemblyName>
-    <PackageId>TusDotNetClient</PackageId>
-    <Authors>jonstodle</Authors>
-    <Description>A client library for interacting with a Tus enabled server.</Description>
-    <RepositoryUrl>https://github.com/jonstodle/TusDotNetClient</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/jonstodle/TusDotNetClient</PackageProjectUrl>
-    <License>MIT</License>
+    <RootNamespace>TusDotNetClient MrJ85</RootNamespace>
+    <AssemblyName>TusDotNetClient MrJ85</AssemblyName>
+    <PackageId>TusDotNetClientMrJ85</PackageId>
+    <Authors>MrJ85</Authors>
+    <Description>A client library for interacting with a Tus enabled server (Forked from https://github.com/jonstodle/TusDotNetClient).</Description>
+    <RepositoryUrl>https://github.com/hs-jose-solis/TusDotNetClient</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/hs-jose-solis/TusDotNetClient</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <LangVersion>latest</LangVersion>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 </Project>
