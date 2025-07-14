@@ -350,7 +350,9 @@ namespace TusDotNetClient
             if (offsetHeaderKey == null)
                 throw new Exception("Offset Header Missing");
 
-            return long.Parse(response.Headers[offsetHeaderKey]);
+            if (!response.Headers.TryGetValue(offsetHeaderKey, out var value))
+		        throw new Exception("Offset header value not found");
+            return long.Parse(value);
         }
 
         private static int ChunkSizeToMB(double chunkSize)
