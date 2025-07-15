@@ -204,7 +204,16 @@ namespace TusDotNetClient
                                     throw new Exception("WriteFileInServer failed. " + response.ResponseString);
                                 }
 
-                                offset = long.Parse(response.Headers[TusHeaderNames.UploadOffset]);
+                                var offsetHeaderKey = response.Headers.Keys
+                                    .FirstOrDefault(k => string.Equals(k, TusHeaderNames.UploadOffset, StringComparison.OrdinalIgnoreCase));
+
+                                if (offsetHeaderKey == null)
+                                    throw new Exception("Offset Header Missing");
+
+                                if (!response.Headers.TryGetValue(offsetHeaderKey, out var offsetValue))
+                                    throw new Exception("Offset header value not found");
+
+                                offset = long.Parse(offsetValue);
 
                                 //                            reportProgress(offset, fileStream.Length);
                             }
